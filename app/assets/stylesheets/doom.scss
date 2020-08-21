@@ -1,0 +1,150 @@
+// Place all the styles related to the Doom controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.new_doom_form, .previous_dooms, .friends_dooms, .new_doom_meter_form {
+  margin: 0 15px 15px;
+  padding: 10px;
+  border: 1px solid #1F1F1F;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #1F1F1F;
+}
+
+.new_doom_meter_form {
+  margin-top: 15px;
+}
+
+.previous_dooms {
+  overflow-y: scroll;
+  height: 26vh;
+}
+
+.friends_dooms {
+  overflow-y: scroll;
+  height: 75vh;
+
+  .fa {
+    cursor: pointer;
+  }
+}
+
+#doom_level {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background: #EBEBEB;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: #1F1F1F;
+
+  option {
+    font-weight: 500;
+  }
+}
+
+.doomy {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #D01120;
+  margin-bottom: 25px;
+}
+
+#doom_text {
+  margin: 5px 0 15px;
+  width: 100%;
+  padding: 10px;
+  background: #EBEBEB;
+  border-radius: 10px;
+}
+
+#container_doom_meter #user_dooms .new_doom .submit_btn {
+  background: #D01120;
+  width: 100%;
+}
+
+.friends .doom_like_count i {
+  cursor: pointer;
+  height: 75vh;
+}
+
+#list_levels li:hover {
+  background: #C4C4C4;
+  font-weight: bold;
+}
+
+#doom_level:after {
+  content: "▼";
+  padding: 0 8px;
+  font-size: 12px;
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+#list_levels {
+  display: none;
+  overflow-y: scroll;
+  height: 199px;
+  width: 100%;
+  background: #EBEBEB;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 0;
+  margin: 5px 0 0;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #1F1F1F;
+}
+
+#list_levels li {
+  text-decoration: none;
+  list-style-type: none;
+  font-weight: 500;
+  padding: 5px;
+}
+
+#list_levels a {
+  text-decoration: none;
+  color: #1F1F1F;
+}
+
+#doom_level option {
+  display: none;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DoomMeter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div id="header">
+      <div class="container">
+        <div id="header_content">
+          <a href="/"><%= image_tag'logo.svg' %></a>
+          <%= link_to 'about', '#', class: 'login_link' %>
+          <%= link_to 'shop', '#', class: 'login_link' %>
+          <%= link_to 'donate', '#', class: 'login_link' %>
+          <div><%= select_tag 'dmeter', options_from_collection_for_select(DMeter.all, "name", "name", @doom_meter&.name), onchange: "changeDmeter()" %></div>
+          <div class="login">
+            <% if user_signed_in? %>
+                <%= link_to current_user.username, root_path, class: 'nav_login_link' %>
+                <%= ' | ' %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav_login_link' %>
+            <% else %>
+                <%= render 'shared/login_form' %>
+                <%= render 'shared/registration_form' %>
+                <%= link_to('login ', '#', { class: 'nav_login_link', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#loginModal'}) %>
+                <%= ' | ' %>
+                <%= link_to(' sign up', '#', { class: 'nav_registration_link', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#registrationModal'}) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <%- if false %>
+      <div class="logo" style="text-align: center; font-size: 80px; font-weight: bolder;text-align: center;display: table-cell;vertical-align: middle;">
+        <%= 'Doom Meter' %>
+      </div>
+
+      <div class="left-button-group" >
+        <div><%= link_to 'About', '#' %></div>
+        <div><%= link_to 'Shop', '#' %></div>
+        <div><%= link_to 'Donate', '#' %></div>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

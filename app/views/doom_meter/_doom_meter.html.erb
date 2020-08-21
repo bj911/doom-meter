@@ -1,0 +1,46 @@
+<div class="main_doom_meter">
+  <div class="radius"></div>
+  <div class="radius-in"></div>
+
+  <%- 13.times do |i| %>
+    <div class="level lvl<%= i %>"></div>
+    <% if "doom_lvl_#{i}" == ( @my_doom&.level || @doom_level) %>
+      <%- margin = i < 6 ? 'margin-left-85' : i == 6 ? 'margin-left-58' : '' %>
+      <% if @my_doom.present? %>
+        <div class="current-text-level height-80 text<%= i %> <%= margin %> left<%= i %>">
+          <div class="red-level"><%= @doom_meter["doom_lvl_#{i}"] %></div>
+          <%= image_tag 'point.svg' %>
+          <div class="text_doom" title="<%= @my_doom.text %>"><%= @my_doom.text %></div>
+          <hr>
+          <div>
+            <%= "Share My Doomy:" %>
+            <%= rails_social_share_button_tag('Share to Doom Meter', desc: 'test description') %>
+          </div>
+        </div>
+      <% else %>
+        <div class="current-text-level text<%= i %> <%= margin %> left<%= i %> top<%= i %>">
+          <div class="red-level"><%= @doom_meter["doom_lvl_#{i}"] %></div>
+          <%= image_tag 'point.svg' %>
+          <span class="margin-left-5"><%= @doom_meter.count_active_dooms %></span>
+          <%= ' total Doomies' %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="text-level text<%= i %>"><%= @doom_meter["doom_lvl_#{i}"] %></div>
+    <% end %>
+  <% end %>
+
+  <div class="radius-level-in"></div>
+  <div class="point-level point<%= DMeter.point_level(@doom_level) %>"></div>
+  <div class="center-circle">
+    <%= image_tag 'scull.svg' %>
+    <div class="user-name"><%= current_user&.username || 'general doomy' %></div>
+  </div>
+  <div class="center-circle-back"></div>
+  <%= image_tag 'arrow.svg', class: "arrow arr#{DMeter.point_level(@doom_level)}" %>
+  <div class="doom_meter-title">
+    <div class="doom_meter-name"><%= @doom_meter&.name %></div>
+  </div>
+  <div class="back-block"></div>
+  <div class="banner"><%= image_tag 'doom.svg' %></div>
+</div>

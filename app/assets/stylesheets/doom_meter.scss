@@ -1,0 +1,261 @@
+#container_doom_meter {
+  width: 100%;
+  //background: lightgreen;
+  height: 100%;
+
+  #doom-meter {
+    margin: 0 auto;
+    float: left;
+
+    .main_doom_meter {
+      width:100%;
+      height: 100%;
+      text-align: center;
+
+      .arrow_line {
+        transform-origin : center;
+        border: 1px solid black;
+        width:1px;
+        background: black;
+        height: 400px;
+        position: absolute;
+        top: 532px;
+
+        p {
+          padding: 5px;
+          margin-top: -8px;
+        }
+      }
+    }
+
+    .next_doom {
+      z-index: 9999;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: lightgray;
+    }
+  }
+
+  #user_dooms {
+    position: fixed;
+    right: 0;
+    top: 90px;
+    width: 20%;
+    height: 100%;
+    background: #C4C4C4;
+    float: right;
+
+    .doom_button_group {
+      justify-content: space-between;
+      justify-items: start;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      min-height: 100px;
+      align-items: end;
+      padding-top: 40px;
+    }
+
+    @media(max-width: 1200px) {
+     .doom_button_group .doom_btn {
+       width: 100%;
+       margin: 5px 15px 10px;
+     }
+    }
+
+    .doom_btn {
+      min-width: 95px;
+      background: #8C8C8C;
+      border-radius: 10px;
+      padding: 10px 20px;
+
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      /* identical to box height */
+      text-align: center;
+      text-transform: uppercase;
+      color: #DFDFDF;
+      border: none;
+    }
+
+    .active_btn {
+      background: #D01120;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    .left_btn {
+      //margin-left: 15px;
+    }
+
+    .right_btn {
+      //margin-right: 15px;
+      //float: right;
+    }
+
+    .user_doom {
+      border: 1px solid black; padding: 5px;
+    }
+  }
+}
+
+.doom_info_block {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #1F1F1F;
+}
+
+.custom_doom_meter {
+  margin: 40px 15px 53px;
+}
+
+.button_doom_meter {
+  width: 100%;
+  padding: 10px 80px;
+  background: #8C8C8C;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: none;
+}
+
+.count_previous_dooms {
+  margin: 0 15px 9px;
+}
+
+.line-height-35 {
+  line-height: 35px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.width-50 {
+  width: 40%;
+}
+
+.grey_color {
+  color: #8C8C8C;
+}
+
+.red_uppercase_text {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #D01120;
+}
+
+
+.doom_like_count {
+  width: 40%;
+  float: right;
+
+  font-weight: 500;
+  line-height: 9px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+
+  color: #D01120;
+
+  span {
+    font-size: 7px;
+    color: #000000;
+  }
+}
+
+.previous_doom {
+  padding: 10px;
+
+  font-family: Montserrat,sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+
+  color: #1F1F1F;
+}
+
+.previous_doom_info {
+  background: #EBEBEB;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.user-doom {
+  font-family: Montserrat,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1F1F1F;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #8C8C8C;
+  margin: 5px 0 8px;
+}
+
+.dmeter_field {
+  width: 100%;
+  background: #EBEBEB;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: #1F1F1F;
+  border: none;
+}
+
+#d_meter_count_days {
+  width:25%;
+  float:right;
+}
+
+.margin-left-60 {
+  margin-left: 60px;
+}
+
+#container_doom_meter {
+  #user_dooms {
+    z-index: 88;
+  }
+}

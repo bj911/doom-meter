@@ -1,0 +1,34 @@
+<%= render partial: 'doom/form' %>
+<div class="text-center">
+  <%= link_to new_doom_meter_path do %>
+    <div class="custom_doom_meter"><%= button_tag 'create a custom doom meter', class: 'button_doom_meter' %></div>
+  <% end %>
+</div>
+
+<div class="dooms">
+  <div class="count_previous_dooms">
+    <span><%= 'my previous dooms' %></span>
+    <span class="right grey_color"><%= @previous_dooms.size %></span>
+  </div>
+  <div class="previous_dooms">
+    <% @previous_dooms.each do |doom| %>
+      <div class="previous_doom">
+        <div class="clearfix">
+          <div class="left width-40"><%= doom.created_at.strftime('%B %d, %Y') %></div>
+          <div class="doom_like_count">
+            <span><%= doom.likes.size if doom.likes.size > 0 %></span>
+            <i class="fa <%= current_user.liked?(doom.id) %>" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="previous_doom_info">
+          <div class="grey_color">Today i’m feeling</div>
+          <div class="red_uppercase_text">
+            <div><%= @doom_meter[doom.level] %></div>
+          </div>
+          <div class="grey_color">Because</div>
+          <div><%= doom.text %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

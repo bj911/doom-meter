@@ -1,0 +1,7 @@
+<div id="user_dooms">
+  <div class="doom_button_group clearfix">
+    <%= button_tag 'my doom', class: 'doom_btn active_btn left_btn', onclick: "getDoom($(this), 'my_doom', '#{@doom_meter.friendly_id}')" %>
+    <%= button_tag 'general', class: 'doom_btn right_btn', onclick: "getDoom($(this), 'general', '#{@doom_meter.friendly_id}')" %>
+  </div>
+  <div class="doom_info_block"><%= render partial: 'doom/my_dooms' %></div>
+</div>

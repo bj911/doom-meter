@@ -1,0 +1,23 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="login_block">
+        <div class="modal-body">
+          <div class="login_link">log in</div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.text_field :username, placeholder: 'Username', required: true %>
+            </div>
+            <div class="field">
+              <%= f.password_field :password, placeholder: 'Your Password', required: true %>
+            </div>
+            <%= link_to "forgot password?", new_password_path(resource_name), class: 'login-field left-margin' %>
+            <%= link_to "Create an account", '#', "data-dismiss" => "modal", onclick:"$('.nav_registration_link').click();", class: 'login-field right-margin' %><br />
+            <%= recaptcha_tags %>
+            <div class="actions"><%= f.submit "submit" %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

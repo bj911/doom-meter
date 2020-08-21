@@ -1,0 +1,17 @@
+<div class="new_doom_form">
+  <div><%= "today i'm feeling" %></div>
+  <%= form_for @doom, url: doom_meter_doom_index_path(@doom_meter), method: :post do |f| %>
+    <div><%= text_field_tag 'doom[level]', @doom_meter.doom_lvl_0, onclick:"showListLevels()", required: true %><div class="caret"></div></div>
+    <ul id="list_levels">
+      <% @doom_meter.levels.each do |k,v| %>
+        <li onclick="hideListLevels($(this))"><a href="#"><%= k %></a></li>
+      <% end %>
+    </ul>
+    <div class="because">
+      <div class="doomy"><%= 'doomy' %></div>
+      <div><%= 'because' %></div>
+      <div><%= f.text_area :text, rows: "3", placeholder: 'Your Reason', maxlength: 50, required: true %></div>
+      <%= f.submit 'submit', class: 'doom_btn submit_btn' %>
+    </div>
+  <% end %>
+</div>

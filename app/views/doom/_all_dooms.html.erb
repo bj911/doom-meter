@@ -1,0 +1,27 @@
+<div class="count_previous_dooms">
+  <span><%= 'doom friends' %></span>
+  <span class="right grey_color"><%= @doom_meter.count_active_dooms %></span>
+</div>
+
+<div class="friends_dooms">
+  <% @dooms.each do |k,dooms| %>
+    <div class="previous_doom">
+      <div class="clearfix"><div class="left width-40"><%= k %></div></div>
+      <% dooms.each do |doom| %>
+        <div class="previous_doom_info">
+          <div class="border-bottom clearfix">
+            <div class="left width-40 user-doom"><%= doom.user.username %></div>
+            <div class="doom_like_count">
+              <span><%= doom.likes.count if doom.likes.count > 0 %></span>
+              <i class="fa <%= current_user.likes.where(doom_id: doom.id).first.present? ? 'fa fa-thumbs-up' : 'fa fa-thumbs-o-up' %>" aria-hidden="true" onclick="Like($(this), <%= doom.id %>)"></i>
+            </div>
+          </div>
+          <div class="grey_color">Today i’m feeling</div>
+          <div class="red_uppercase_text"><%= @doom_meter[doom.level] %></div>
+          <div class="grey_color">Because</div>
+          <div><%= doom.text %></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

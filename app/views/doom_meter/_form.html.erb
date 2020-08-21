@@ -1,0 +1,17 @@
+<div class="new_doom_meter_form">
+  <div><%= 'New Doom Meter' %></div>
+  <%= form_for @new_doom_meter, url: doom_meter_index_path, method: :post do |f| %>
+
+    <div><%= f.text_field :name, placeholder: 'Name', class: 'dmeter_field', maxlength: 30, required: true %></div>
+
+    <%- 13.times do |i| %>
+      <div><%= f.text_field "doom_lvl_#{i}", class: 'dmeter_field', maxlength: 15, placeholder: "level #{i}", required: true %></div>
+    <% end %>
+
+    <div class="line-height-35">
+      <%= label 'days for calculate', 'days for calculate', style:"margin-top: 5px;"%>
+      <%= f.number_field "count_days", value: 1, min: 1, required: true, class: 'dmeter_field' %>
+    </div>
+    <div class="margin-left-60"><%= f.submit 'submit', class: 'doom_btn submit_btn' %></div>
+  <% end %>
+</div>
