@@ -27,7 +27,7 @@ function getDoom(self, type, id) {
 }
 
 function changeDmeter() {
-    var id = $('#dmeter').val().replace(/ /g,"-");
+    var id = $('#dmeter').val().trim().split(/[\s,]+/).join('-');
     window.location.href = '/doom_meter/' + id;
 }
 
