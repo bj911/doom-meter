@@ -1,3 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div id="flash-message">
+    <%= msg %>
+  </div>
+<% end %>
 <div id="container_doom_meter">
   <div id="doom-meter"><%= render partial: 'doom_meter' %></div>
   <%= render partial: 'doom/dooms' if current_user %>

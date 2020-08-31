@@ -27,7 +27,7 @@ function getDoom(self, type, id) {
 }
 
 function changeDmeter() {
-    var id = $('#dmeter').val().replace(/ /g,"_");
+    var id = $('#dmeter').val().replace(/ /g,"-");
     window.location.href = '/doom_meter/' + id;
 }
 
@@ -50,3 +50,7 @@ function hideListLevels(self) {;
     $('#doom_level').val(text);
     $('#doom_level').prop('disabled', '')
 }
+
+setTimeout(function() {
+    $('#flash-message').fadeOut('fast');
+}, 3000);
