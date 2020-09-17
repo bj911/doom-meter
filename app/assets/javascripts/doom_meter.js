@@ -22,6 +22,7 @@ function getDoom(self, type, id) {
         success: function(response){
             $('.doom_info_block').html(response.html);
             $('#doom-meter').html(response.doom_meter);
+            resizeMeter()
         }
     });
 }
@@ -53,4 +54,25 @@ function hideListLevels(self) {;
 
 setTimeout(function() {
     $('#flash-message').fadeOut('fast');
-}, 3000);
+}, 6000);
+
+$( document ).ready(function() {
+    resizeMeter();
+});
+
+function resizeMeter() {
+    if (window.innerWidth < 1700 && window.innerWidth >= 1600) { $('.main_doom_meter')[0].style.transform = 'scale(0.915)' }
+    if (window.innerWidth < 1600 && window.innerWidth >= 1500) { $('.main_doom_meter')[0].style.transform = 'scale(0.86)' }
+    if (window.innerWidth < 1500 && window.innerWidth >= 1400) { $('.main_doom_meter')[0].style.transform = 'scale(0.785)' }
+    if (window.innerWidth < 1400 && window.innerWidth >= 1300) { $('.main_doom_meter')[0].style.transform = 'scale(0.708)' }
+    if (window.innerWidth < 1300 && window.innerWidth >= 1200) { $('.main_doom_meter')[0].style.transform = 'scale(0.632)' }
+    if (window.innerWidth < 1200 && window.innerWidth >= 1100) { $('.main_doom_meter')[0].style.transform = 'scale(0.566)' }
+    if (window.innerWidth < 1100 && window.innerWidth >= 1000) { $('.main_doom_meter')[0].style.transform = 'scale(0.49)' }
+    if (window.innerWidth < 1000 && window.innerWidth >= 900) { $('.main_doom_meter')[0].style.transform = 'scale(0.413)' }
+    if (window.innerWidth < 900 && window.innerWidth >= 800) { $('.main_doom_meter')[0].style.transform = 'scale(0.336)' }
+    if (window.innerWidth < 800 && window.innerWidth >= 700) { $('.main_doom_meter')[0].style.transform = 'scale(0.259)' }
+    if (window.innerWidth < 700 && window.innerWidth >= 600) { $('.main_doom_meter')[0].style.transform = 'scale(0.183)' }
+    if (window.innerWidth < 600 && window.innerWidth >= 500) { $('.main_doom_meter')[0].style.transform = 'scale(0.106)' }
+    if (window.innerWidth < 500) { $('.main_doom_meter')[0].style.transform = 'scale(0.088)' }
+}
+

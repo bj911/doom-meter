@@ -1,7 +1,16 @@
 <%= render partial: 'doom/form' %>
 <div class="text-center">
-  <%= link_to new_doom_meter_path do %>
-    <div class="custom_doom_meter"><%= button_tag 'create a custom doom meter', class: 'button_doom_meter' %></div>
+  <% if @doom_meter.user != current_user %>
+    <%= link_to new_doom_meter_path do %>
+      <div class="custom_doom_meter"><%= button_tag 'create a custom doom meter', class: 'button_doom_meter' %></div>
+    <% end %>
+  <% else %>
+    <%= link_to new_doom_meter_path do %>
+      <div class="custom_doom_meter_two_button"><%= button_tag 'create a custom doom meter', class: 'button_doom_meter two_button' %></div>
+    <% end %>
+    <%= link_to doom_meter_path(@doom_meter), method: :delete do %>
+      <div class="custom_doom_meter_two_button"><%= button_tag 'delete current doom meter', class: 'button_doom_meter two_button' %></div>
+    <% end %>
   <% end %>
 </div>
 

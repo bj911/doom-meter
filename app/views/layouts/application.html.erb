@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body>
+  <body onresize="resizeMeter()">
+  <% if flash['notice'].present? %>
+    <div id="flash-message">
+      <% [flash["notice"]].flatten.each do |msg| %>
+        <p><strong><%= msg %></strong></p>
+      <% end %>
+    </div>
+  <% end %>
     <div id="header">
       <div class="container">
         <div id="header_content">
@@ -34,21 +41,6 @@
         </div>
       </div>
     </div>
-
-
-
-    <%- if false %>
-      <div class="logo" style="text-align: center; font-size: 80px; font-weight: bolder;text-align: center;display: table-cell;vertical-align: middle;">
-        <%= 'Doom Meter' %>
-      </div>
-
-      <div class="left-button-group" >
-        <div><%= link_to 'About', '#' %></div>
-        <div><%= link_to 'Shop', '#' %></div>
-        <div><%= link_to 'Donate', '#' %></div>
-      </div>
-    <% end %>
-
     <%= yield %>
   </body>
 </html>

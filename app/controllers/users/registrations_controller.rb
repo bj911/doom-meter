@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if verify_recaptcha
+    if true#verify_recaptcha
       build_resource(sign_up_params)
       resource.save
       user = resource
@@ -29,12 +29,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         clean_up_passwords resource
         set_minimum_password_length
-        return redirect_to root_path(user: user)
-        respond_with resource
+        flash[:notice] = resource.errors.full_messages
+        redirect_to root_path
+        # return redirect_to root_path(user: user)
+        # respond_with resource
       end
     else
       flash[:notice] = 'reCAPTCHA verification failed, please try again.'
-      redirect_to root_path(notice: flash[:notice])
+      redirect_to root_path
     end
   end
 

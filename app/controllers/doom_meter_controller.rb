@@ -37,6 +37,12 @@ class DoomMeterController < ApplicationController
     end
   end
 
+  def destroy
+    @doom_meter.destroy
+    flash['notice'] = "Doom Meter #{@doom_meter.name} deleted succeffuly!"
+    redirect_to root_path
+  end
+
   private
   def set_doom_meter
     return @doom_meter = DMeter.first if params["id"].blank?

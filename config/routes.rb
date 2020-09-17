@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources 'doom_meter', only: [:show, :new, :create] do
+  resources 'doom_meter', only: [:show, :new, :create, :destroy] do
     resources 'doom', only: :create
   end
   post '/get_dooms', to: "doom_meter#get_dooms"

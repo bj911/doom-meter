@@ -2,6 +2,14 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.caret {
+  font-size: larger;
+  right: 45px;
+  transform: rotate(-0deg);
+  position: fixed;
+  font-weight: bold;
+  top: 255px;
+}
 
 .new_doom_form, .previous_dooms, .friends_dooms, .new_doom_meter_form {
   margin: 0 15px 15px;
@@ -28,12 +36,12 @@
 
 .previous_dooms {
   overflow-y: scroll;
-  height: 26vh;
+  height: calc(100vh - 660px);
 }
 
 .friends_dooms {
   overflow-y: scroll;
-  height: 75vh;
+  height: calc(100vh - 245px);
 
   .fa {
     cursor: pointer;
@@ -49,12 +57,10 @@
   border-radius: 10px;
   padding: 10px;
   margin: 5px 0;
-
   font-weight: bold;
   font-size: 13px;
   line-height: 16px;
   text-transform: uppercase;
-
   color: #1F1F1F;
 
   option {
@@ -93,7 +99,7 @@
 
 .friends .doom_like_count i {
   cursor: pointer;
-  height: 75vh;
+  height: calc(100vh - 100px);
 }
 
 #list_levels li:hover {

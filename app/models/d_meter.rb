@@ -3,7 +3,7 @@ class DMeter < ApplicationRecord
   friendly_id :name, use: [:slugged, :finders]
 
   belongs_to :user
-  has_many :dooms
+  has_many :dooms, dependent: :destroy
 
   validates :name, :doom_lvl_0, :doom_lvl_1, :doom_lvl_2, :doom_lvl_3, :doom_lvl_4,
             :doom_lvl_5, :doom_lvl_6, :doom_lvl_7, :doom_lvl_8, :doom_lvl_9, :doom_lvl_10,
@@ -11,7 +11,7 @@ class DMeter < ApplicationRecord
   validates :name, uniqueness: true
   validates_length_of :doom_lvl_0, :doom_lvl_1, :doom_lvl_2, :doom_lvl_3, :doom_lvl_4,
                       :doom_lvl_5, :doom_lvl_6, :doom_lvl_7, :doom_lvl_8, :doom_lvl_9, :doom_lvl_10,
-                      :doom_lvl_11, :doom_lvl_12, :count_days, minimum: 1, maximum: 15, allow_blank: true
+                      :doom_lvl_11, :doom_lvl_12, :count_days, minimum: 1, maximum: 25, allow_blank: true
   validates_length_of :name, minimum: 1, maximum: 30, allow_blank: true
 
   def levels

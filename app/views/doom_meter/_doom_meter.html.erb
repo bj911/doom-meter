@@ -33,8 +33,8 @@
   <div class="radius-level-in"></div>
   <div class="point-level point<%= DMeter.point_level(@doom_level) %>"></div>
   <div class="center-circle">
-    <%= image_tag 'scull.svg' %>
-    <div class="user-name"><%= current_user&.username || 'general doomy' %></div>
+    <%#= image_tag 'scull.svg' %>
+    <div class="user-name" style="margin-top:60px;"><%= current_user&.username || 'general doomy' %></div>
   </div>
   <div class="center-circle-back"></div>
   <%= image_tag 'arrow.svg', class: "arrow arr#{DMeter.point_level(@doom_level)}" %>
