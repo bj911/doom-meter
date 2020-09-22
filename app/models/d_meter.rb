@@ -42,4 +42,8 @@ class DMeter < ApplicationRecord
   def self.point_level(lvl)
     lvl.split('_').last
   end
+
+  def self.public_list_doom_meters(user)
+    (DMeter.where(public: true) + user&.d_meters.to_a).uniq
+  end
 end

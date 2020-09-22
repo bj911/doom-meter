@@ -12,6 +12,12 @@
       <%= label 'days for calculate', 'days to calculate average', style:"margin-top: 5px;font-size:9px;"%>
       <%= f.number_field "count_days", value: 1, min: 1, required: true, class: 'dmeter_field' %>
     </div>
-    <div class="margin-left-60"><%= f.submit 'submit', class: 'doom_btn submit_btn' %></div>
+    <div class="public">
+      <%= f.label :public do %>
+        <%= f.check_box :public %>
+        <%= "Public" %>
+      <% end %>
+    </div>
+    <div><%= f.submit 'submit', class: 'doom_btn submit_btn' %></div>
   <% end %>
 </div>

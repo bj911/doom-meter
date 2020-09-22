@@ -20,7 +20,7 @@ d_meter = DMeter.create!(user_id: User.first.id, name: 'Default Doom Meter', lin
                doom_lvl_3: 'level 3', doom_lvl_4: 'level 4', doom_lvl_5: 'level 5',
                doom_lvl_6: 'level 6', doom_lvl_7: 'level 7', doom_lvl_8: 'level 8',
                doom_lvl_9: 'level 9', doom_lvl_10: 'level 10', doom_lvl_11: 'level 11',
-               doom_lvl_12: 'level 12')
+               doom_lvl_12: 'level 12', public: true)
 
 
 20.times do |i|

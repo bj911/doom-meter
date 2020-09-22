@@ -24,7 +24,8 @@
           <%= link_to 'about', '#', class: 'login_link' %>
           <%= link_to 'shop', '#', class: 'login_link' %>
           <%= link_to 'donate', '#', class: 'login_link' %>
-          <div><%= select_tag 'dmeter', options_from_collection_for_select(DMeter.all, "name", "name", @doom_meter&.name), onchange: "changeDmeter()" %></div>
+          <% doom_meters = DMeter.public_list_doom_meters(current_user) %>
+          <div><%= select_tag 'dmeter', options_from_collection_for_select(doom_meters, "name", "name", @doom_meter&.name), onchange: "changeDmeter()" %></div>
           <div class="login">
             <% if user_signed_in? %>
                 <%= link_to current_user.username, root_path, class: 'nav_login_link' %>

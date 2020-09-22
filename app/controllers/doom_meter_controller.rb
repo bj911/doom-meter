@@ -66,7 +66,8 @@ class DoomMeterController < ApplicationController
                                    :doom_lvl_10,
                                    :doom_lvl_11,
                                    :doom_lvl_12,
-                                   :count_days
+                                   :count_days,
+                                   :public
     )
   end
 
