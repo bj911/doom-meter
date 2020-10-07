@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources 'doom', only: :create
   end
   post '/get_dooms', to: "doom_meter#get_dooms"
+  post '/send_invite', to: "doom_meter#send_invite"
+  get '/apply_invite/:uid', to: "doom_meter#apply_invite", as: 'apply_invite'
   post '/like', to: "doom#like"
 
   root to: 'doom_meter#show'

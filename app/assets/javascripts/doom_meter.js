@@ -61,6 +61,7 @@ $( document ).ready(function() {
 });
 
 function resizeMeter() {
+    if (window.innerWidth >= 1700) { $('.main_doom_meter')[0].style.transform = 'none' }
     if (window.innerWidth < 1700 && window.innerWidth >= 1600) { $('.main_doom_meter')[0].style.transform = 'scale(0.915)' }
     if (window.innerWidth < 1600 && window.innerWidth >= 1500) { $('.main_doom_meter')[0].style.transform = 'scale(0.86)' }
     if (window.innerWidth < 1500 && window.innerWidth >= 1400) { $('.main_doom_meter')[0].style.transform = 'scale(0.785)' }
@@ -74,5 +75,24 @@ function resizeMeter() {
     if (window.innerWidth < 700 && window.innerWidth >= 600) { $('.main_doom_meter')[0].style.transform = 'scale(0.183)' }
     if (window.innerWidth < 600 && window.innerWidth >= 500) { $('.main_doom_meter')[0].style.transform = 'scale(0.106)' }
     if (window.innerWidth < 500) { $('.main_doom_meter')[0].style.transform = 'scale(0.088)' }
+}
+
+function sendInvite(id) {
+    var email = $('#invite_email').val();
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: { id: id, email: email },
+        url: '/send_invite',
+        success: function(response){
+            $('body').prepend('<div id=\"flash-message\"><strong>' + response.message + '</strong></div>');
+        },
+        error: function(error) {
+            $('body').prepend('<div id=\"flash-message\">' + error.responseJSON.message + '</div>');
+        }
+    });
+    setTimeout(function () {
+        $('#flash-message').fadeOut('fast');
+    }, 6000);
 }
 

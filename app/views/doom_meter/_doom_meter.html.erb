@@ -1,4 +1,10 @@
 <div class="main_doom_meter">
+  <% if @my_doom.present? %>
+    <div class="invite">
+      <%= email_field_tag 'invite_email' %>
+      <button onclick="sendInvite(<%= @doom_meter.id %>)">send invite</button>
+    </div>
+  <% end %>
   <div class="radius"></div>
   <div class="radius-in"></div>
 

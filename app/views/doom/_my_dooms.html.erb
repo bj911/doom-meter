@@ -8,7 +8,7 @@
     <%= link_to new_doom_meter_path do %>
       <div class="custom_doom_meter_two_button"><%= button_tag 'create a custom doom meter', class: 'button_doom_meter two_button' %></div>
     <% end %>
-    <%= link_to doom_meter_path(@doom_meter), method: :delete do %>
+    <%= link_to doom_meter_path(@doom_meter), method: :delete, data: {confirm: "Are you sure?"} do %>
       <div class="custom_doom_meter_two_button"><%= button_tag 'delete current doom meter', class: 'button_doom_meter two_button' %></div>
     <% end %>
   <% end %>

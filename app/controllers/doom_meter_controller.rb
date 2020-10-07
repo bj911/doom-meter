@@ -1,5 +1,5 @@
 class DoomMeterController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :send_invite]
   before_action :set_doom_meter
 
   def show
@@ -41,6 +41,24 @@ class DoomMeterController < ApplicationController
     @doom_meter.destroy
     flash['notice'] = "Doom Meter #{@doom_meter.name} deleted succeffuly!"
     redirect_to root_path
+  end
+
+  def send_invite
+    invite = Invite.new(email: params[:email], d_meter_id: @doom_meter.id, uid: SecureRandom.uuid)
+    if invite.save
+      UserMailer.send_invite(invite.uid, invite.email).deliver_now
+      render json: {message: 'Invitation was sent successfully.'}, status: :ok
+    else
+      errors = ''
+      invite.errors.full_messages.each { |error| errors += "<p><strong>#{error}</strong></p>" }
+      render json: {message: errors}, status: :unprocessable_entity
+    end
+  end
+
+  def apply_invite
+    invite = Invite.where(uid: params[:uid]).first
+    invite.update(active: true)
+    redirect_to doom_meter_path(invite.d_meter)
   end
 
   private

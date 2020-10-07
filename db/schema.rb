@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_122724) do
+ActiveRecord::Schema.define(version: 2020_09_25_103802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 2020_09_22_122724) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "invites", force: :cascade do |t|
+    t.bigint "d_meter_id", null: false
+    t.string "uid"
+    t.string "email"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["d_meter_id"], name: "index_invites_on_d_meter_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "doom_id", null: false
@@ -96,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_122724) do
   add_foreign_key "d_meters", "users"
   add_foreign_key "dooms", "d_meters"
   add_foreign_key "dooms", "users"
+  add_foreign_key "invites", "d_meters"
   add_foreign_key "likes", "dooms"
   add_foreign_key "likes", "users"
 end

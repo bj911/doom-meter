@@ -44,6 +44,6 @@ class DMeter < ApplicationRecord
   end
 
   def self.public_list_doom_meters(user)
-    (DMeter.where(public: true) + user&.d_meters.to_a).uniq
+    (DMeter.where(public: true) + user&.d_meters.to_a + Invite.where(active: true, email: user&.email).map(&:d_meter)).uniq
   end
 end

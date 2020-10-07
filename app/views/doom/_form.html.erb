@@ -10,7 +10,7 @@
     <div class="because">
       <div class="doomy"><%= 'doomy' %></div>
       <div><%= 'because' %></div>
-      <div><%= f.text_area :text, rows: "3", placeholder: 'Your Reason', maxlength: 50, required: true %></div>
+      <div><%= f.text_area :text, rows: "3", placeholder: 'Your Reason', maxlength: 100, required: true %></div>
       <%= f.submit 'submit', class: 'doom_btn submit_btn' %>
     </div>
   <% end %>

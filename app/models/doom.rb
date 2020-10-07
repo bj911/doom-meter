@@ -4,7 +4,7 @@ class Doom < ApplicationRecord
   has_many :likes
 
   validates :level, :text, presence: true
-  validates_length_of :text, minimum: 1, maximum: 50, allow_blank: true
+  validates_length_of :text, minimum: 1, maximum: 100, allow_blank: true
 
   after_create :change_last_active_doom
 
